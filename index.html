@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>Food</title>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <button ng-click="reload()">Reload categories</button>
+        <h1>Cant decide what to eat?</h1>
+        <button ng-click="random()">Random Meal</button>
+        <div ng-repeat="item in food" ng-click="clicked(item.strCategory, item.idMeal)">
+            <p>{{item.strCategory}}</p>
+            <p>{{item.strMeal}}</p>
+            <p>{{item.strArea}}</p>
+            <img src="{{item.strCategoryThumb}}{{item.strMealThumb}}">
+            <p>{{item.strCategoryDescription}}{{item.strInstructions}}</p>
+        </div>
+    </div>
+  </body>
+  </html>
