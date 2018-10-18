@@ -15,6 +15,25 @@ firstApp.controller('myCtrl',
                 });
 
         }
+        
+        $scope.otherClicked = function(category, id) {
+            console.log(category);
+            if (category == undefined) {
+                var url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
+                $http.get(url).then(function(response) {
+                    console.log(response.data.meals);
+                    $scope.food = response.data.meals;
+                });
+            }
+            else {
+            var url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + category;
+                $http.get(url).then(function(response) {
+                    console.log(response.data.meals);
+                    $scope.food = response.data.meals;
+                });
+            }
+        }
+        
         $scope.clicked = function(category, id) {
             console.log(category);
             if (category == undefined) {
